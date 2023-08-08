@@ -53,6 +53,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+Configuration.JwtKey = app.Configuration.GetValue<string>("JwtKey");
+Configuration.ApiKeyName = app.Configuration.GetValue<string>("ApiKeyName");
+Configuration.ApiKey = app.Configuration.GetValue<string>("ApiKey");
+
+var smtp = new Configuration.SmtConfiguration();
+app.Configuration.GetSection("Smtp").Bind(smtp);
+Configuration.Smtp = smtp;
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
