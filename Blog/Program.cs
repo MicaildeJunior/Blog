@@ -27,6 +27,7 @@ LoadConfiguration(app);
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
 app.MapControllers();
 app.Run();
 
@@ -79,4 +80,5 @@ void ConfigureServices(WebApplicationBuilder builder)
     builder.Services.AddTransient<TokenService>(); // Sempre cria um novo
     //builder.Services.AddScoped();    // Requisição, enquanto a request durar vai usar o token dela
     //builder.Services.AddSingleton(); // 1 por App, usa sempre a mesma instancia
+    builder.Services.AddTransient<EmailService>();
 }
