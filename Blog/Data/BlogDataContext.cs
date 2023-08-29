@@ -11,7 +11,7 @@ public class BlogDataContext : DbContext
     public DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlServer("Data Source=LAPTOP-563RGJKO\\sqlexpress;Initial Catalog=Blog;Integrated Security=True");
+        => options.UseSqlServer("Data Source=LAPTOP-563RGJKO\\sqlexpress;Initial Catalog=blog-modulo-6;Integrated Security=True"); //  Catalog=Blog
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
